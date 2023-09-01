@@ -1,8 +1,8 @@
 import { IconButton, Typography } from "@mui/material"
+import { AddOutlined } from "@mui/icons-material"
 import { JournalLayout } from "../Layout/JournalLayout"
 import { NothingSelectedViws } from "../Viws/NothingSelectedViws"
 import { NoteView } from "../Viws/NoteView"
-import { AddOutlined } from "@mui/icons-material"
 
 export const JournalPage = () => {
   return (
