@@ -7,8 +7,8 @@ import { NoteView } from "../Viws/NoteView"
 export const JournalPage = () => {
   return (
     <JournalLayout>      
-      <NoteView/>
-      {/* <NothingSelectedViws/> */}
+      {/* <NoteView/> */}
+      <NothingSelectedViws/>
       <Typography> Todos los hombre desean saber por naturaleza </Typography>
       <IconButton
       size="large"
