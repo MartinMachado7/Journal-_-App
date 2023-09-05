@@ -9,7 +9,7 @@ import { startCreatingUserWithEmailPassword } from "../../store/auth";
 const formDate = {
   email:'',
   password:'',
-  displayName:'',
+  displayName:''
 }
 
 const formValidations = {
