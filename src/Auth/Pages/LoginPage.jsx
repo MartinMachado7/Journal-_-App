@@ -13,8 +13,8 @@ export const LoginPage = () => {
 
   const dispatch = useDispatch();
   const {email, password, onInputChange, formState } = UseForm({
-  email: 'martinquehace@gmail.com',
-  password:'12345'
+  email: '',
+  password:''
   });
 
   const isAuthenticating = useMemo(()=> status === 'checkimg',[status]);

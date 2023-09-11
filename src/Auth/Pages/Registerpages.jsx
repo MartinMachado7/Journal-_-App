@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link as Routerlink  } from "react-router-dom";
+import { Link as RouterLink  } from "react-router-dom";
 import { Alert, Button, Grid, Link, TextField, Typography } from "@mui/material"
 import { AuthLayout } from "../Layout/AuthLayout";
 import { UseForm } from "../../Hooks";
@@ -28,63 +28,63 @@ export const Registerpages = () => {
 
   const {
     formState, displayName, email, password, onInputChange, 
-    isFormvalid, displayNameValid, emailValid, passwordValid, 
+    isFormValid, displayNameValid, emailValid, passwordValid, 
    } = UseForm(formDate, formValidations);
  
   const onSubmit = (event) =>{
   event.preventDefault();
   setFormSubmitted(true); 
-
-  if (!isFormvalid) return;
-
-    dispatch(startCreatingUserWithEmailPassword(formState));
+  
+  if (!isFormValid) return
+  dispatch(startCreatingUserWithEmailPassword(formState));
+  
 }
   return (
     
     <AuthLayout title="Crear Cuenta">
         <form onSubmit={onSubmit}>
         <Grid container>
-            <Grid item xs={12} sx={{mt: 2}}>
-              <TextField
-              label ='Nombre de usuario'
-              type="text"
-              placeholder="Name"
-              fullWidth
-              name="displayName"
-              value={displayName}
-              onChange={onInputChange}
-              error={!!displayNameValid && formSubmitted}
-              helperText={displayNameValid}
+        <Grid item xs={ 12 } sx={{ mt: 2 }}>
+              <TextField 
+                label="Nombre completo" 
+                type="text" 
+                placeholder='Nombre completo' 
+                fullWidth
+                name="displayName"
+                value={ displayName }
+                onChange={ onInputChange }
+                error={ !!displayNameValid && formSubmitted }
+                helperText={ displayNameValid }
               />
             </Grid>
 
-            <Grid item xs={12} sx={{mt: 2}}>
-              <TextField
-              label ='CORREO'
-              type="email"
-              placeholder="correo@gmail.com"
-              fullWidth
-              name="email"
-              value={email}
-              onChange={onInputChange}
-              error={!!emailValid && formSubmitted}
-              helperText={emailValid}              
+            <Grid item xs={ 12 } sx={{ mt: 2 }}>
+              <TextField 
+                label="Correo" 
+                type="email" 
+                placeholder='correo@google.com' 
+                fullWidth
+                name="email"
+                value={ email }
+                onChange={ onInputChange }
+                error={ !!emailValid && formSubmitted }
+                helperText={ emailValid }
               />
             </Grid>
 
-              <Grid item xs={12} sx={{mt: 2}}>
-                <TextField
-                label ='CONTRASEÑA'
-                type="password"
-                placeholder="contraseña"
+            <Grid item xs={ 12 } sx={{ mt: 2 }}>
+              <TextField 
+                label="Contraseña" 
+                type="password" 
+                placeholder='Contraseña' 
                 fullWidth
                 name="password"
-                value={password}
-                onChange={onInputChange}
-                error={!!passwordValid && formSubmitted}
-                helperText={passwordValid}
-                />
-              </Grid>
+                value={ password }
+                onChange={ onInputChange }
+                error={ !!passwordValid && formSubmitted  }
+                helperText={ passwordValid }
+              />
+            </Grid>
               
               <Grid container spacing={ 2 } sx={{ mb: 2, mt:1}}>
                 <Grid 
@@ -95,27 +95,21 @@ export const Registerpages = () => {
                       <Alert severity="error">{errorMessage}</Alert>
                 </Grid>
 
-                <Grid item xs={ 12 } >
-                  <Button 
-                  disabled={isCheckingAuthentication}
+                <Grid item xs={ 12 }>
+                <Button 
+                  disabled={ isCheckingAuthentication }
                   type="submit"
                   variant='contained' 
                   fullWidth>
-                    Crear cuenta
-                  </Button>
-                </Grid>
+                  Crear cuenta
+                </Button>
+              </Grid>
 
-                {/* <Grid item xs={ 12 } sm={6}>
-                  <Button variant='contained' fullWidth>
-                    <Google/>
-                    <Typography sx={{ml:1}}>Google</Typography>
-                  </Button>
-                </Grid> */}
                </Grid>
 
                 <Grid container direction='row' justifyContent='end'>
                   <Typography sx={{ mr: 1}}>¿ya tienes cuenta?</Typography>
-                  <Link component={ Routerlink } color ='inherit' to='/Auth/Login'>
+                  <Link component={ RouterLink } color ='inherit' to='/Auth/Login'>
                   Ir al login
                   </Link>
                 </Grid>

@@ -21,14 +21,13 @@ export const startGoogleSingIn = () => {
 }
 export const  startCreatingUserWithEmailPassword = ({email, password,displayName}) => {
     return async(dispatch) => {
+         dispatch(checkingCredentials() );
+        
+        const result = await registerUserWithEmailPassword({email, password, displayName});
 
-    dispatch(checkingCredentials());
-
-    const result = await registerUserWithEmailPassword({email, password, displayName});
-
-    if (!result.ok) return dispatch(logout ({errorMessage}));
+        if (!result.ok) return dispatch(logout (result.errorMessage));
     
-    dispatch(login(result));
+        dispatch(login(result));
     }    
 }
 
