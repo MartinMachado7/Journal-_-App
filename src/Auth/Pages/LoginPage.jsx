@@ -7,15 +7,18 @@ import { AuthLayout } from "../Layout/AuthLayout";
 import { UseForm } from "../../Hooks";
 import { startGoogleSingIn, startLoginWithEmailPassword } from "../../store/auth";
 
+  const formDate = {
+  email:'',
+  password: ''
+  }
+
+
 export const LoginPage = () => {
  
   const {status, errorMessage} = useSelector(state => state.auth);
 
   const dispatch = useDispatch();
-  const {email, password, onInputChange, formState } = UseForm({
-  email: '',
-  password:''
-  });
+  const {email, password, onInputChange, formState } = UseForm(formDate );
 
   const isAuthenticating = useMemo(()=> status === 'checkimg',[status]);
 

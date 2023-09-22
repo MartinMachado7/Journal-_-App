@@ -1,16 +1,39 @@
+import { useMemo } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import { IconButton, Typography } from "@mui/material"
 import { AddOutlined } from "@mui/icons-material"
 import { JournalLayout } from "../Layout/JournalLayout"
-import { NothingSelectedViws } from "../Viws/NothingSelectedViws"
-import { NoteView } from "../Viws/NoteView"
+import { NothingSelectedViws, NoteView } from "../Viws"
+import { starNewNote } from "../../store/journal/thunks"
 
 export const JournalPage = () => {
+
+const Dispatch = useDispatch();
+ 
+const {isSaving, active} = useSelector(state => state.journal)
+
+const onClickNewNote = () =>{
+
+  Dispatch(starNewNote());
+
+}
+
+const deshabilitarBoton =useMemo(() => isSaving === true, [isSaving]);
+
   return (
     <JournalLayout>      
-      {/* <NoteView/> */}
-      <NothingSelectedViws/>
-      <Typography> Todos los hombre desean saber por naturaleza </Typography>
+
+
+      {
+      (!!active) 
+     
+      ? <NoteView /> 
+      : <NothingSelectedViws/>
+      
+      }
       <IconButton
+      disabled={deshabilitarBoton}
+      onClick={ onClickNewNote}
       size="large"
       sx={{
         color:"white",

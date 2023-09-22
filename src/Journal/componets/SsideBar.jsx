@@ -1,16 +1,17 @@
 import { useSelector } from "react-redux"
-import { Box, Divider, Drawer, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Typography } from "@mui/material"
-import { TurnedInNot,  } from "@mui/icons-material"
+import { Box, Divider, Drawer, List, Toolbar, Typography } from "@mui/material"
+import { SideBarItem } from "./";
 
 export const SsideBar= ({DrawerWidth}) => {
 
     const {displayName} =useSelector(state => state.auth);
+    const {notes } =useSelector(state => state.journal);
 
   return (
     <Box
         component='nav'
         sx={{width: {sm: DrawerWidth}, flexShrink:{sm:0}}}
-    >
+       >
         <Drawer
             variant="permanent" // temporary
             open
@@ -18,7 +19,7 @@ export const SsideBar= ({DrawerWidth}) => {
                 display: {xs:'block' },
                 '& .MuiDrawer-paper': {boxSizing: 'border-box', width: DrawerWidth}
             }}
-        >
+         >
             <Toolbar>
                  <Typography variant="h6" noWrap component='div'>
                     {displayName}
@@ -28,19 +29,11 @@ export const SsideBar= ({DrawerWidth}) => {
 
            <List>
             {
-                ['january', 'febrary', 'march', 'april'].map(Text => (
-                    <ListItem key={Text} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <TurnedInNot/>
-                            </ListItemIcon>
-                            <Grid container>
-                                <ListItemText primary={Text} />
-                                <ListItemText secondary ={'martin master of masters.'} />
-                            </Grid>
-                        </ListItemButton>
-                    </ListItem>
+                
+                    notes.map(note => (
+                    <SideBarItem key={note.id} {...note}/>
                 ))
+                
             }
            </List>
 
