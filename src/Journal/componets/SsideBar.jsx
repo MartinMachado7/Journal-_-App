@@ -5,7 +5,7 @@ import { SideBarItem } from "./";
 export const SsideBar= ({DrawerWidth}) => {
 
     const {displayName} =useSelector(state => state.auth);
-    const {notes } =useSelector(state => state.journal);
+    const {notes} =useSelector(state => state.journal);
 
   return (
     <Box
@@ -27,15 +27,13 @@ export const SsideBar= ({DrawerWidth}) => {
             </Toolbar>
            <Divider />
 
-           <List>
-            {
-                
-                    notes.map(note => (
-                    <SideBarItem key={note.id} {...note}/>
-                ))
-                
-            }
-           </List>
+                <List>
+                    {
+                        notes.map( note => (
+                            <SideBarItem key={ note.id } { ...note } />
+                        ))
+                    }
+                </List>
 
         </Drawer>
     </Box>

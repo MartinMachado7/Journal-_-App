@@ -5,14 +5,13 @@ import { TurnedInNot } from "@mui/icons-material"
 import { setActiveNote } from "../../store/journal"
 
 
-export const SideBarItem = ({title, body, id, date, imageUrls = [] }) => {
+export const SideBarItem = ({title, body, id, date, imageUrls =[]}) => {
 
   const Dispatch = useDispatch();
 
   const onClickNote = ()=>{
   
-    Dispatch(setActiveNote({title, body, id, date, imageUrls}));
-  
+    Dispatch(setActiveNote({title, body, id, date, imageUrls}))
   };
 
     // este hook es para el espacio del título.
@@ -22,6 +21,12 @@ export const SideBarItem = ({title, body, id, date, imageUrls = [] }) => {
             : title; 
     },[title] )
 
+    const newBody = useMemo( () => {
+      return body.length > 15
+          ? body.substring(0,40) + '...'
+          : body; 
+  },[body] )
+
   return (
         <ListItem disablePadding>
                 <ListItemButton onClick={onClickNote}>
@@ -30,7 +35,7 @@ export const SideBarItem = ({title, body, id, date, imageUrls = [] }) => {
                   </ListItemIcon>
                     <Grid container>
                          <ListItemText primary={newTitle} />
-                        <ListItemText secondary ={body} />
+                        <ListItemText secondary ={newBody} />
                     </Grid>
                   </ListItemButton>
          </ListItem>
