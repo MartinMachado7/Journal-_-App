@@ -7,7 +7,7 @@ export const journalSlice = createSlice({
         notes: [],
         active: null,
         // active: {
-        //     id: 'acd123',
+        //     id: 'ABC123',
         //     title: '',
         //     body: '',
         //     date: 123456,
@@ -15,7 +15,7 @@ export const journalSlice = createSlice({
         // },
     },
     reducers: {
-        savingNewNotes: (state, ) => {
+        savingNewNotes: (state) => {
             state.isSaving = true; 
         },
         addNewEmptyNote:(state, action)=>{

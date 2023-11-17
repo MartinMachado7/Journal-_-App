@@ -21,8 +21,7 @@ export const AuthLayout = ({children, title = ''}) => {
         borderRadius: 2
      }}
        >
-        <Typography variant="h5" sx={{mb: 1}}>{title}</Typography>
-
+        <Typography variant="h4" sx={{mb:1}}>{title}</Typography>
             {children}
         </Grid>
     </Grid>

@@ -1,7 +1,6 @@
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
-import IconButton from '@mui/material/IconButton';
 
 export const ImageGallery = ({images}) => {
   return (
@@ -11,7 +10,7 @@ export const ImageGallery = ({images}) => {
           <img
             src={`${image}?w=248&fit=crop&auto=format`}
             srcSet={`${image}?w=248&fit=crop&auto=format&dpr=2 2x`}
-            alt='Inagen'
+            alt='Inagen de la nota'
             loading="lazy"
           />
           <ImageListItemBar

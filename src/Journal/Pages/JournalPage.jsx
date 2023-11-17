@@ -18,7 +18,7 @@ const onClickNewNote = () =>{
 
 }
 
-const deshabilitarBoton =useMemo(() => isSaving === true, [isSaving]);
+// const deshabilitarBoton =useMemo(() => isSaving === true, [isSaving]);
 
   return (
     <JournalLayout>      
@@ -32,9 +32,9 @@ const deshabilitarBoton =useMemo(() => isSaving === true, [isSaving]);
       
       }
       <IconButton
-      disabled={deshabilitarBoton}
       onClick={ onClickNewNote}
       size="large"
+      disabled={isSaving}
       sx={{
         color:"white",
         backgroundColor: "error.main",

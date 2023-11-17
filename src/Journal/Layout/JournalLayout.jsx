@@ -7,17 +7,32 @@ export const JournalLayout = ({children}) => {
 
   return (
     <Box sx={{display: 'flex'}}>
-        
-        <NavBar DrawerWidth={DrawerWidth}/>
-
+       
+        <NavBar DrawerWidth={DrawerWidth}/>            
         <SsideBar DrawerWidth={DrawerWidth}/>
+        {/* <Drawer
+            sx={{
+                width: DrawerWidth,
+                flexShrink: 0,
+                '& .MuiDrawer-paper': {
+                  width: DrawerWidth,
+                  boxSizing: 'border-box',
+                },
+              }}
+              // variant="persistent"
+              anchor="left"
+              // open={open}
+        > */}
+            
+
+        {/* </Drawer> */}
+
     
         <Box 
         component={'main'}
         sx={{ flexGrow: 1, p: 3 }}
         >
             <Toolbar/>
-            {/* toolbar */}
             {children}
         </Box>
     </Box>

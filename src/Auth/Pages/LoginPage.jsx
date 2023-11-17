@@ -1,9 +1,11 @@
 import { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link as Routerlink  } from "react-router-dom";
-import { Google } from "@mui/icons-material"
 import { Alert, Button, Grid, Link, TextField, Typography } from "@mui/material"
+import Google from "@mui/icons-material/Google";
+
 import { AuthLayout } from "../Layout/AuthLayout";
+
 import { UseForm } from "../../Hooks";
 import { startGoogleSingIn, startLoginWithEmailPassword } from "../../store/auth";
 
@@ -12,21 +14,20 @@ import { startGoogleSingIn, startLoginWithEmailPassword } from "../../store/auth
   password: ''
   }
 
-
 export const LoginPage = () => {
  
   const {status, errorMessage} = useSelector(state => state.auth);
 
   const dispatch = useDispatch();
-  const {email, password, onInputChange, formState } = UseForm(formDate );
+  const {email, password, onInputChange,} = UseForm(formDate);
 
   const isAuthenticating = useMemo(()=> status === 'checkimg',[status]);
 
   const onSubmit =(event) =>{
-  event.preventDefault();
+    event.preventDefault();
 
-  console.log( email, password);
-  dispatch(startLoginWithEmailPassword({email, password}))
+  // console.log( email, password);
+    dispatch(startLoginWithEmailPassword({email, password}));
   }
   const onGoogleSingIn = ()=>{
     dispatch(startGoogleSingIn());
@@ -36,7 +37,9 @@ export const LoginPage = () => {
     
     <AuthLayout title="login">
       
-        <form onSubmit={onSubmit}>
+        <form 
+       aria-label="sumit-form"
+        onSubmit={onSubmit}>
         <Grid container>
             <Grid item xs={12} sx={{mt: 2}}>
               <TextField
@@ -57,6 +60,9 @@ export const LoginPage = () => {
                 placeholder="contraseña"
                 fullWidth
                 name="password"
+                inputProps={{
+                  'data-testid': 'password'
+                }}
                 value={password}
                 onChange={onInputChange}
                 />
@@ -89,6 +95,7 @@ export const LoginPage = () => {
                   <Button 
                   disabled={isAuthenticating}
                   variant='contained' 
+                  aria-label="google-btn"
                   fullWidth
                   onClick={onGoogleSingIn}>
                     <Google/>

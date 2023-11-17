@@ -5,12 +5,13 @@ import { JournalApp } from './journalApp'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from "react-redux";
 import { store } from './store'
-
+import PersistentDrawerLeft from './Journal/componets/botonlateral'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
     <BrowserRouter>
-    <JournalApp />
+    <PersistentDrawerLeft/>
+    {/* <JournalApp /> */}
     </BrowserRouter>
     </Provider>
   </React.StrictMode>
