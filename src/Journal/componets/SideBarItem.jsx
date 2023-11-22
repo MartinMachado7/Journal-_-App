@@ -20,7 +20,7 @@ export const SideBarItem = ({title, body, id, date, imageUrls =[]}) => {
             ? title.substring(0,17) + '...'
             : title; 
     },[title] )
-
+ 
     const newBody = useMemo( () => {
       return body.length > 15
           ? body.substring(0,40) + '...'

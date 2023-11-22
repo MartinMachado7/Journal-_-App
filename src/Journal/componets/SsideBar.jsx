@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux"
-import { Box, Divider, Drawer, List, Toolbar, Typography } from "@mui/material"
+import { Box, Divider, Drawer, IconButton, List, Toolbar, Typography } from "@mui/material"
 import { SideBarItem } from "./";
 
-export const SsideBar= ({DrawerWidth}) => {
+export const SsideBar= ({DrawerWidth, handleDrawerClose}) => {
 
     const {displayName} =useSelector(state => state.auth);
     const {notes} =useSelector(state => state.journal);
@@ -21,6 +21,10 @@ export const SsideBar= ({DrawerWidth}) => {
             }}
          >
             <Toolbar>
+            <IconButton onClick={handleDrawerClose}>
+            {/* {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />} */}
+          </IconButton>
+        
                  <Typography variant="h6" noWrap component='div'>
                     {displayName}
                  </Typography>
