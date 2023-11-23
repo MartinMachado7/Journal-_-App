@@ -1,6 +1,5 @@
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
-import ImageListItemBar from '@mui/material/ImageListItemBar';
 
 export const ImageGallery = ({images}) => {
   return (
@@ -10,14 +9,14 @@ export const ImageGallery = ({images}) => {
           <img
             src={`${image}?w=248&fit=crop&auto=format`}
             srcSet={`${image}?w=248&fit=crop&auto=format&dpr=2 2x`}
-            alt='Inagen de la nota'
+            alt='Imagen de la nota'
             loading="lazy"
           />
-          <ImageListItemBar
+          {/* <ImageListItemBar
             title={image}
             subtitle={image}
 
-          />
+          /> */}
         </ImageListItem>
       ))}
     </ImageList>

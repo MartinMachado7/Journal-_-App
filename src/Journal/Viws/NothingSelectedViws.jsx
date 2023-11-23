@@ -15,8 +15,10 @@ export const NothingSelectedViws = () => {
             <StarOutline sx={{fontSize: 100, color: 'white'}}/>
         </Grid>
 
-        <Grid item xs={12}  alignItems='center'>
-            <Typography color='white' variant="h5">Selecciona una nota de la barra lateral </Typography>
+        <Grid item xs={12}  textAlign={"center"}>
+            <Typography color='white' variant="h5">
+              Selecciona una nota de la barra lateral 
+              </Typography>
         </Grid>
     </Grid>
 
