@@ -21,7 +21,7 @@ export const NoteView = () => {
 
     const dateString = useMemo(()=> {
         const newDate = new Date(date);
-
+        
         return newDate.toUTCString();
     },[date])
 
@@ -114,7 +114,7 @@ export const NoteView = () => {
                     variant="filled"
                     fullWidth
                     multiline
-                    placeholder="¿Qué sucedió el día de hoy? "
+                    placeholder="Ingresar NOTA"
                     minRows={5}
                     name="body"
                     value={body}
@@ -135,8 +135,6 @@ export const NoteView = () => {
             </Grid>
 
             <ImageGallery images= {note.imageUrls}/>
-
-            {/* <Typography> Todos los hombre desean saber por naturaleza </Typography> */}
 
         </Grid> 
    )
