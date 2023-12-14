@@ -23,12 +23,11 @@ const onClickNewNote = () =>{
   return (
     <JournalLayout>      
 
-
       {
       (!!active) 
      
       ? <NoteView /> 
-      : <NothingSelectedViws/>
+      :<NothingSelectedViws/>
       
       }
       <IconButton

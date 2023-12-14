@@ -4,7 +4,7 @@ import { SideBarItem } from "./";
 import ReadMoreIcon from '@mui/icons-material/ReadMore';
 
 
-export const SsideBar= ({DrawerWidth, handleDrawerClose}) => {
+export const SsideBar= ({DrawerWidth, handleDrawerClose, open}) => {
 
     const {displayName} =useSelector(state => state.auth);
     const {notes} =useSelector(state => state.journal);
@@ -12,16 +12,23 @@ export const SsideBar= ({DrawerWidth, handleDrawerClose}) => {
   return (
     <Box
         component='nav'
-        sx={{width: {sm: DrawerWidth}, flexShrink:{sm:0}}}
+        // sx={{width: {sm: DrawerWidth}, flexShrink:{sm:0}}}
        >
         <Drawer
-            variant="permanent" // temporary
-            open
-            sx={{
-                display: {xs:'block' },
-                '& .MuiDrawer-paper': {boxSizing: 'border-box', width: DrawerWidth}
+           sx={{
+              width: DrawerWidth,
+              flexShrink: 0,
+              '& .MuiDrawer-paper': {
+                width: DrawerWidth,
+                boxSizing: 'border-box',
+              },
             }}
-         >
+              variant="temporary"
+              anchor="left"
+              open={open}
+              
+              onClick={handleDrawerClose}
+            >
             <Toolbar>
                  <Typography variant="h6" noWrap component='div'>
                     {displayName}
@@ -31,7 +38,6 @@ export const SsideBar= ({DrawerWidth, handleDrawerClose}) => {
                 </IconButton>
             </Toolbar>
            <Divider />
-
                 <List>
                     {
                         notes.map( note => (
@@ -39,7 +45,6 @@ export const SsideBar= ({DrawerWidth, handleDrawerClose}) => {
                         ))
                     }
                 </List>
-
         </Drawer>
     </Box>
   )

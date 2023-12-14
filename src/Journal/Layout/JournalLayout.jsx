@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { Box, Drawer, IconButton, Toolbar, useTheme } from "@mui/material"
+import { Box, Drawer, Toolbar, useTheme } from "@mui/material"
 import { NavBar, SsideBar } from "../componets";
-import { MenuOutlined } from "@mui/icons-material";
 
 
 
@@ -9,11 +8,12 @@ export const JournalLayout = ({children}) => {
   const DrawerWidth = 240;
   const theme = useTheme();
   const [open, setOpen] = useState(false);
-  const handleDrawerOpen = () => {
+  let handleDrawerOpen = () => {
+  // console.log('hi')
     setOpen(true);
   };
-  const handleDrawerClose = () => {
-
+  let handleDrawerClose = () => {
+  // console.log('hi word')
     setOpen(false);
   };
   
@@ -25,14 +25,15 @@ export const JournalLayout = ({children}) => {
         DrawerWidth={DrawerWidth}
         handleDrawerOpen={handleDrawerOpen}
         open={open}
+
+        position="fixed"
         sx={{
           width: {sm: `calc(100% - ${ DrawerWidth}px)`},
           ml: {sm: `${DrawerWidth }px`}
           }}
          >
-
         </NavBar>            
-        <Drawer
+        {/* <Drawer
             sx={{
               width: DrawerWidth,
               flexShrink: 0,
@@ -41,24 +42,23 @@ export const JournalLayout = ({children}) => {
                 boxSizing: 'border-box',
               },
             }}
-              // variant="persistent"
+              variant="temporary"
               anchor="left"
               open={open}
-        >
-            
+        ></Drawer> */}
             <SsideBar 
             DrawerWidth={DrawerWidth}
             handleDrawerClose={handleDrawerClose}
-            >
+            open={open}
+            />
 
-            </SsideBar>
-        </Drawer>
 
     
         <Box 
         open={open}
         component={'main'}
         sx={{ flexGrow: 1, p: 3 }}
+        onClick={handleDrawerClose}
         >
             <Toolbar/>
             {children}
