@@ -9,12 +9,11 @@ export const JournalLayout = ({children}) => {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   let handleDrawerOpen = () => {
-  // console.log('hi')
-    setOpen(true);
+    setOpen(true) ;
   };
   let handleDrawerClose = () => {
-  // console.log('hi word')
-    setOpen(false);
+    setOpen();
+    // console.log('hi word')
   };
   
 
@@ -58,7 +57,7 @@ export const JournalLayout = ({children}) => {
         open={open}
         component={'main'}
         sx={{ flexGrow: 1, p: 3 }}
-        onClick={handleDrawerClose}
+        // onClick={handleDrawerClose}
         >
             <Toolbar/>
             {children}
